@@ -1,1 +1,1 @@
-# disease-CNS-by-ECG
+# CVDclassification-based-on-ECG-signals
