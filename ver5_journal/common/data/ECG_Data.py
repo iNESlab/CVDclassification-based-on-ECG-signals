@@ -52,11 +52,9 @@ class ECG_Data(Dataset):
         data_new = np.array(data[0], dtype=np.float32)  # float32로 변환
         data_new = np.transpose(data_new, (1, 0))
         data_final = torch.Tensor(data_new)
-        print(f'data_new : {data_new.shape}')
         # 레이블 처리: NORM, STTC, MI, HYP, CD 열을 하나의 벡터로 결합
         label_columns = ['NORM', 'MI', 'STTC', 'CD', 'HYP']
         label = self.data.loc[idx, label_columns].values.astype(np.float32)
-        print(f'label : {label.shape}')
 
         # 레이블 값 검증
         if not np.all(np.isfinite(label)):  # 숫자가 아닌 값이 있으면 에러 처리
