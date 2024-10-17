@@ -3,7 +3,7 @@
 2. 학습 : `./process/*`
 3. 테스트 : `./test/*`
 
-    학습시 나눈 2케이스를 각각 다른 Lossfunction으로 테스트
+    학습시 나눈 두 가지(BCE/weight_BCE Loss)케이스를 각각 다른 Lossfunction으로 테스트
 
 ### ♻️ 전처리
 - 데이터셋의 scp_codes 클래스의 multi-label들을 super-label (['NORM', 'MI', 'STTC', 'CD', 'HYP'])로 묶음
