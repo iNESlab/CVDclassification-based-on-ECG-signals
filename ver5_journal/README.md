@@ -9,7 +9,7 @@
 - 데이터셋의 scp_codes 클래스의 multi-label들을 super-label (`'NORM', 'MI', 'STTC', 'CD', 'HYP'`)로 묶음
 - super-label로 묶을 때, 기존 레이블의 수치가 0인 경우 제외 (ex. `{'NORM': 100.0, 'SR': 0.0}` 의 경우, SR 삭제)
 - super-label을 binary-class로 변경하여 기존 데이터셋의 열에 concatenate (ex. NORM, STTC, MI 클래스를 데이터셋에 col=1로 추가)
-![img.png](img.png)
+![img](https://github.com/user-attachments/assets/fffe6e07-7faa-4769-8b4b-f841fe6c23a6)
 
 ### 📖 학습
 - LossFunction을 단순 BCE로 학습(에폭 100) : 기존 50으로 학습 후, 정확도를 높이기 위해 100으로 변경
