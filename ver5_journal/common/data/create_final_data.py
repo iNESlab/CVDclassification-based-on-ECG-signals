@@ -35,14 +35,14 @@ for label, codes in diagnostics.items():
 label_columns = ['NORM', 'MI', 'STTC', 'CD', 'HYP']
 
 
-def create_final_data():
+def create_final_data(data=ecg_data):
     labels = []
-    discard = []
+    # discard = []
 
     # 각 레코드에 대해 레이블 매핑
-    for index in range(ecg_data.shape[0]):
+    for index in range(data.shape[0]):
         temp_labels = {label: 0 for label in label_columns}  # 레이블 초기화 (0으로)
-        temp_diag = ecg_data['scp_codes'][index]
+        temp_diag = data['scp_codes'][index]
 
         # 데이터가 dict 형태이므로, 키와 값을 추출
         try:
@@ -69,7 +69,7 @@ def create_final_data():
 
     # 레이블 데이터프레임으로 변환하여 병합
     labels_df = pd.DataFrame(labels)
-    final_data = pd.concat([ecg_data, labels_df], axis=1)
+    final_data = pd.concat([data, labels_df], axis=1)
 
     # 레이블 분포 시각화
     sns.set(style="whitegrid")
