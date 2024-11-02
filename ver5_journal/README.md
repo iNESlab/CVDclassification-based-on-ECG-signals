@@ -14,16 +14,11 @@
 ### 📖 학습
 - LossFunction을 단순 BCE로 학습(에폭 100) : 기존 50으로 학습 후, 정확도를 높이기 위해 100으로 변경
 - LossFunction을 weight BCE로 학습(에폭 50) : 새로 추가
+- BCResNet을 분류기 하나로 학습 : one-stage-BCResNet
 
 ### 🧪 테스트
 - 정확도는 weight_BCE_test가 BCE_test보다 0.08%p 더 낮음  
 - AUC는 weight_BCE가 전체적으로 높음.
 - 에폭을 감안했을 때, weight_BCE가 더 개선 가능성이 있음.
-
-# 🐛 문제
-- 정확도는 전체적으로 다 낮음. (multi-label이라 각 분류기 정확도가 0.9더라도 전체 정확도는 0.6보다 낮게 나오는게 정상임.)
-- Multi-label binary classifier 특성상 분류기를 추가할수록 정확도는 더 낮게 나올 것임.
-
-# 🤙 도전 과제
-1. weight_BCE를 에폭 100으로 테스트해보기
-2. 기존 데이터셋의 수치(ex.`{'NORM': 100.0, 'SR': 0.0}`)와 sigmoid 예측 확률을 비교한 손실함수로 학습시키기
+- 다중 분류기 파라미터가 단일 분류기 파라미터보다 약 5배 더 많음.
+- 대신, 다단계 분류기가 AUC(약 1.9%p)와 HammingLoss(약 3.2%p)가 더 좋음.
